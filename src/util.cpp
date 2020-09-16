@@ -40,6 +40,15 @@ namespace csi281 {
     // Suggest using the facilities in STL <random>
     int *randomIntArray(const int length, const int min, const int max) {
         // YOUR CODE HERE
+        int array[length];
+        srand((unsigned)time(0));
+        for (int i = 0; i < array.length; i++)
+        {
+            if (array[i] < min)
+                min = array[i];
+            if (array[i] > max)
+                max = array[i];
+        }
     }
     
     // Finds the speed of linear versus binary search
