@@ -30,21 +30,40 @@
 #define search_hpp
 
 namespace csi281 {
-    
+
     // Returns the first location of the found key
     // or -1 if the key is never found
     template <typename T>
     int linearSearch(T array[], const int length, const T key) {
-        // YOUR CODE HERE
+
+        for (int i = 0; i < array.length; i++;)
+        {
+            if (array[i] == key)
+                return i;
+            else
+                return -1;
+        }
     }
-    
+
     // Returns the first location of the found key
     // or -1 if the key is never found; assumes a sorted array
     template <typename T>
     int binarySearch(T array[], const int length, const T key) {
-        // YOUR CODE HERE
+        int left, int right = 0;
+        if right >= 1 {
+            int mid = l + (r - 1) / 2;
+
+            if (array[mid] == x)
+                return mid;
+
+            if (array[mid] > key)
+                return binarySearch(array, 1, mid - 1, key);
+            return binarySearch(array, mid + 1, right, key);
+        }
+        return -1;
     }
-}
+};
+
 
 
 #endif /* search_hpp */
