@@ -1,0 +1,15 @@
+Sebastian Meredith
+
+1.
+O(n)
+2.
+O(nlogn)
+3.
+12 * 10 log(10) = 120
+12 * 5 log(5) = 41
+60 times
+
+4. 
+Tuple
+key_value_pair
+A Struct where you overload the < operator in order to define a comparator
