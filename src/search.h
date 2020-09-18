@@ -6,7 +6,7 @@
 //  You SHOULD modify this file.
 //
 //  Copyright 2019 David Kopec
-//
+//  Sebastian Meredith
 //  Permission is hereby granted, free of charge, to any person
 //  obtaining a copy of this software and associated documentation files
 //  (the "Software"), to deal in the Software without restriction,
@@ -33,6 +33,7 @@ namespace csi281 {
 
     // Returns the first location of the found key
     // or -1 if the key is never found
+    // Credit to David Kopec:
     template <typename T>
     int linearSearch(T array[], const int length, const T key) {
 
@@ -46,6 +47,7 @@ namespace csi281 {
 
     // Returns the first location of the found key
     // or -1 if the key is never found; assumes a sorted array
+    // Credit to David Kopec:
     template <typename T>
     int binarySearch(T array[], const int length, const T key) {
         int low = 0;
