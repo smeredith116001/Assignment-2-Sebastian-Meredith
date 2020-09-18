@@ -40,22 +40,14 @@ namespace csi281 {
     // Suggest using the facilities in STL <random>
     int *randomIntArray(const int length, const int min, const int max) {
         // YOUR CODE HERE
-        int[] array = new int[length];
-        srand((unsigned)time(NULL));
-        for (int i = 1; i < array.length; i++)
+        
+        int *randArray = new int[length];
+        for (int i = 0; i < length; i++)
         {
-            array[i] = 1 + rand() % 100;
-            sum+= array[i]
-        }
-        ;
-        for (int i = 0; i < array.length; i++)
-        {
-            if (array[i] < min)
-                min = array[i];
-            if (array[i] > max)
-                max = array[i];
-        }
-        return array
+            randArray[i] = rand() %  max + min;
+        };
+        
+        return randArray;
     }
     
     // Finds the speed of linear versus binary search
@@ -76,18 +68,31 @@ namespace csi281 {
     pair<nanoseconds, nanoseconds> arraySearchSpeed(const int length, const int numTests) {
         int *testArray = randomIntArray(length, 0, length);
         int *testKeys = randomIntArray(numTests, 0, length);
-        
         using namespace std::chrono;
-        
+        auto start = duration_cast<nanoseconds>(system_clock::now().time_since_epoch()).count();
         // Do numTests linear searches and find the average time
-        // Put the result in a variable linearSearchSpeed
+        // Put the result in a variable linearSearchSpee
         
+        
+        for (int i = 0; i < numTests; i++)
+        {
+            linearSearch(testArray, length, testKeys[i]);
+        }
+        auto end = duration_cast<nanoseconds>(system_clock::now().time_since_epoch()).count();
+        auto linearSearchSpeed = ((end-start)/numTests);
         // YOUR CODE HERE
-        
+        start = duration_cast<nanoseconds>(system_clock::now().time_since_epoch()).count();
         // Do numTests binary searches and find the average time
         // Put the result in a variable binarySearchSpeed
-        
+        sort(testArray, testArray + length);
+        for (int i = 0; i < numTests; i++)
+        {
+            binarySearch(testArray, length, testKeys[i]);
+        }
         // YOUR CODE HERE
+        end = duration_cast<nanoseconds>(system_clock::now().time_since_epoch()).count();
+        
+        int binarySearchSpeed = ((end - start) / numTests);
         
         
         delete testArray;
